@@ -42,6 +42,7 @@ public class PropietarioRepoImpl implements IPropietarioRepo {
 
 
 	@Override
+	@Transactional(value = TxType.MANDATORY)
 	public void eliminarPorId(Integer id) {
 		Propietario propietario=this.seleccionarPorId(id);
 		this.entityManager.remove(propietario);
@@ -50,6 +51,7 @@ public class PropietarioRepoImpl implements IPropietarioRepo {
 
 
 	@Override
+	@Transactional(value = TxType.NOT_SUPPORTED)
 	public List<Propietario> seleccionarTodos() {
 		TypedQuery<Propietario> typedQuery=this.entityManager.createQuery("select p from Propietario p",Propietario.class);
 		
