@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.repo.modelo.Propietario;
@@ -30,4 +32,21 @@ public class PropietarioController {
 		
 		return "vistaListaPropietarios";
 	}
+	
+	
+	@GetMapping("/buscarPorID/{idPropietario}")
+	public String buscarPorId(@PathVariable("idPropietario") Integer id, Model model) {
+		Propietario prop=this.iPropietarioService.buscarPorId(id);
+		model.addAttribute("propietario",prop);
+		return "vistaPropietario";
+	}
+	
+	
+	@PutMapping("/actualizar/{idPropietario}")
+	public String actualizarPropietario(@PathVariable("idPropietario") Integer id,Propietario propietario) {
+		this.iPropietarioService.actualizar(propietario);
+		
+		return "redirect:/propietarios/buscar";
+	}
+	
 }
