@@ -33,6 +33,17 @@
 				<td th:text="${propietario.nombre}"></td>
 				<td th:text="${propietario.apellido}"></td>
 				<td th:text="${propietario.cedula}"></td>
+				<td>
+					<form th:action="@{/propietarios/buscarPorID/{id}(id=${propietario.id})} " th:method="GET">
+						<input class="btn btn-info" type="submit" value="Editar">
+					</form>
+
+				</td>
+				<td>
+					<form th:action="@{/propietarios/borrar/{id}(id=${propietario.id})}" th:method="DELETE">
+						<input class="btn btn-danger" type="submit" value="Borrar">
+					</form>
+				</td>
 			</tr>
 			
 		</hbody>

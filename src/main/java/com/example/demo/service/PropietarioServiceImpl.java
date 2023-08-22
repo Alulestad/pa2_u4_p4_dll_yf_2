@@ -13,6 +13,7 @@ import jakarta.transaction.Transactional.TxType;
 
 
 @Service
+@Transactional
 public class PropietarioServiceImpl implements IPropietarioService {
 
 	@Autowired

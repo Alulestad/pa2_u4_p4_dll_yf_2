@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <form th:action="@{/propietarios/actualizar/{idPropietario}(id=${propietario.id})}" th:object="${propietario}" th:method="PUT">
+
+    <form th:action="@{/propietarios/actualizar/{idP}(idP=${propietario.id})}" th:object="${propietario}" th:method="PUT">
         <table>
             <tr>
                 <td><label>ID: </label></td>
